@@ -33,12 +33,15 @@ retriever = vector_storage.as_retriever(search_kwargs={"k": 4})
 # Define the question template
 question_template = """
 You are an AI assistant specializing in Solidity smart contracts. Your task is to provide accurate and complete code based on the context given. If a complete contract is requested, ensure you return the entire contract code.
+REMEMBER: If you see a word cross-chain, then you have to write two contracts interacting on polygon and SKALE network.
 
 context: {context}
 
 question: {question}
 
 Please provide the complete code for the contract requested.
+REMEMBER: If you see a word cross-chain, then you have to write two contracts interacting on polygon and SKALE network.
+
 """
 
 prompt = PromptTemplate.from_template(template=question_template)
